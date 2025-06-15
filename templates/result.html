@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hasil Prediksi</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+        }
+        h2, h3 {
+            text-align: center;
+            margin-top: 30px;
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+            font-size: 15px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px 14px;
+            text-align: center;
+        }
+        th {
+            background-color: #f0f4f8;
+        }
+        td {
+            background-color: #fafbfc;
+        }
+        img {
+            display: block;
+            margin: 30px auto;
+            max-width: 95%;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            text-decoration: none;
+            background-color: #4f8ef7;
+            color: white;
+            padding: 12px 20px;
+            width: 220px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        a:hover {
+            background-color: #3c72cc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Hasil Prediksi Bunga Iris</h2>
+
+    <table>
+        <tr>
+            <th>Sepal Length</th>
+            <th>Sepal Width</th>
+            <th>Petal Length</th>
+            <th>Petal Width</th>
+            <th>Prediksi</th>
+        </tr>
+        {% for row in hasil %}
+        <tr>
+            <td>{{ row['SepalLengthCm'] }}</td>
+            <td>{{ row['SepalWidthCm'] }}</td>
+            <td>{{ row['PetalLengthCm'] }}</td>
+            <td>{{ row['PetalWidthCm'] }}</td>
+            <td><strong>{{ row['Predicted_Species'] }}</strong></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h3>Grafik Elbow Method (Tanpa Cross-Validation)</h3>
+    <img src="{{ url_for('static', filename='elbow.png') }}" alt="Elbow Method">
+
+    <h3>Grafik Elbow Method dengan 5-Fold Cross-Validation</h3>
+    <img src="{{ url_for('static', filename='elbow_cv.png') }}" alt="CV Elbow Method">
+
+    <a href="/">Upload File Lain</a>
+</div>
+
+</body>
+</html>

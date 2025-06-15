@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Data Bunga Iris</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #c2e9fb, #a1c4fd);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .upload-box {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+        h2 {
+            margin-bottom: 30px;
+            color: #333;
+        }
+        input[type="file"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px dashed #4f8ef7;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            width: 100%;
+            text-align: center;
+        }
+        input[type="submit"] {
+            background-color: #4f8ef7;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #3c72cc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="upload-box">
+    <h2>Upload Data Bunga Iris (CSV)</h2>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".csv" required><br>
+        <input type="submit" value="🔍 Prediksi Sekarang">
+    </form>
+</div>
+
+</body>
+</html>
